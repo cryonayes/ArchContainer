@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  archlinux:
+    build: .
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /home/[HOST_USERNAME]/.dockerCookie:/home/[USERNAME]/.dockerCookie
+    network_mode: host
+    restart: always
+    container_name: 'archlinux'
+    privileged: true
